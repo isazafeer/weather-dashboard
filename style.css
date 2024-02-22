@@ -1,11 +1,10 @@
 body {
     background: rgb(151, 183, 239);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    height: 10vh;
     margin: 0;
+    padding-left: 25px;
+    padding-top: 20px;
 }
 
 #weather-container {
@@ -18,7 +17,7 @@ body {
     text-align: center;
 }
 
-h2, label, p {
+h1, label, p {
     color: #fff;
     margin: 8px 0;
 }
@@ -36,7 +35,7 @@ button {
     background: rgb(151, 183, 239);
     color: white;
     padding: 10px;
-    border: none;
+    border: 1px solid black;
     border-radius: 10px;
     cursor: pointer;
     margin-top: 10px;
@@ -87,4 +86,24 @@ button {
 #hourly-heading {
     color: #fff;
     margin-top: 10px;
+}
+
+.card {
+    background: rgb(203, 120, 238);
+    max-width:250px;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px;
+    border: 1px solid;
+    height: 10vh;
+}
+
+.five-day-container {
+    margin: 0;
+    padding: 10vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
