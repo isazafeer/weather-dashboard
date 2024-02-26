@@ -7,42 +7,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="weather-container">
-        <h1>Weather Dashboard</h1>
-        <input type="text" id="city" placeholder="Enter a city...">
-        <button onclick="getWeather()">Search</button>
-
-        <img id="weather-icon" alt="Weather Icon">
-
-        <div id="temp-div"></div>
-
-        <div id="weather-info"></div>
-
-        <div id="hourly-forecast"></div>
-    </div>
-    <div class="five-day-container">
-        <div class="card">
-            <h2 class="heading">Monday</h2>
-            <p class="info">Weather</p>
+    <h1>Weather Dashboard</h1>
+    <div class="container">
+        <div class="weather-input">
+            <h3>Enter City</h3>
+            <input type="text" placeholder="E.g, London, New York, Tokyo">
+            <button class="search-btn">Search</button>
         </div>
-
-        <div class="card">
-            <h2 class="heading">Tuesday</h2>
-            <p class="info">Weather</p>
-        </div>
-        <div class="card">
-            <h2 class="heading">Wednesday</h2>
-            <p class="info">Weather</p>
-        </div>
-        <div class="card">
-            <h2 class="heading">Thursday</h2>
-            <p class="info">Weather</p>
-        </div>
-        <div class="card">
-            <h2 class="heading">Friday</h2>
-            <p class="info">Weather</p>
+        <div class="weather-data">
+            <div class="current-weather">
+                <div class="details">
+                    <h2>London (26-02-2024)</h2>
+                    <h4>Temperature: 19.10ºC</h4>
+                    <h4>Wind: 4.31 M/S</h4>
+                    <h4>Humidity: 79%</h4>
+                </div>
+                <div class="icon">
+                    <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon">
+                    <h4>Moderate Rain</h4>
+                </div>
+            </div>
         </div>
     </div>
+
+
+
+
+
     <script src="script.js"></script>
 </body>
 </html>
