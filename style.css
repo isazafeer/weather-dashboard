@@ -93,10 +93,9 @@ h1 {
 .weather-cards .card {
     list-style: none;
     color: white;  
-    background: lightslategray;
+    background: liGhtslategray;
     border-radius: 5px;
     padding: 30px;
-    width: calc(100% / 5);
 }
 .weather-cards .card img {
     max-width: 70px;
@@ -109,9 +108,6 @@ h1 {
     }
     .weather-cards {
         flex-wrap: wrap;
-    }
-    .weather-cards .card {
-        width: calc(100% / 4 15px);
     }
 }
 
