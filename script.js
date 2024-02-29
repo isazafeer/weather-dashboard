@@ -5,42 +5,41 @@ const weatherCardsDiv = document.querySelector(".weather-cards");
 
 const API_KEY = "a8cd28286c4410694c1afe25449f53d9"; //API key generated from OpenWeatherMap
 
-const recentLocations = [];
+    // Recent Searches //
 
-function loadRecentLocations() {
-    const recentLocations = JSON.parse(localStorage.getItem('recentLocations'));
-
-    if (recentLocations !== null) {
-        document.getElementById('recent-searches').innerHTML = "";
-
-        for (let i = 0; i <recentLocations.length; i++) {
-            var newLocation = document.createElement('div');
-            newLocation.classList.add('recent-searches');
-            newLocation.textContent = recentLocations[i];
-            newLocation.addEventListener('click', onClickRecentLocation);
-
-            document.getElementById('recent-searches').appendChild(newLocation);
+    function loadRecentSearches() {
+        const recentSearches = JSON.parse(localStorage.getItem('recentSearches'));
+    
+        if (recentSearches !== null) {
+            document.getElementById('recent-searches').innerHTML = "";
+    
+            for (let i = 0; i <recentSearches.length; i++) {
+                var newSearch = document.createElement('div');
+                newSearch.classList.add('recent-searches');
+                newSearch.textContent = recentSearches[i];
+                newSearch.addEventListener('click', onClickRecentSearch);
+    
+                document.getElementById('recent-searches').appendChild(newSearch);
+            }
         }
     }
-}
-
-function onClickRecentLocation(event) {
-    const searchLocation = event.target.textContent;
-    getCityCoordinates(searchLocation);
-}
-
-function saveRecentSearch (searchLocation) {
-    const recentLocations = JSON.parse(localStorage.getItem('recentLocations'))||[]
-    const index = recentLocations.indexOf(searchLocation);
-
-    if(index === -1 ) {
-        recentLocations.push(searchLocation);
-
-        localStorage.setItem('recentLocations', JSON.stringify(recentLocations));
-        loadRecentLocations();
+    
+    function onClickRecentSearch(event) {
+        const searchLocation = event.target.textContent;
+        getCityCoordinates(searchLocation);
     }
-}
-
+    
+    function saveRecentSearch (searchLocation) {
+        const recentSearches = JSON.parse(localStorage.getItem('recentSearches'))||[]
+        const index = recentSearches.indexOf(searchLocation);
+    
+        if(index === -1 ) {
+            recentLocations.push(searchLocation);
+    
+            localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
+            loadRecentSearches();
+        }
+    }
 
 const createWeatherCard = (cityName, weatherItem, index) => {
     if(index === 0) { //HTML for the main weather card
@@ -102,17 +101,17 @@ const getCityCoordinates = () => {
     const cityName = cityInput.value.trim(); //User enters a city and empty space is removed
     if(!cityName) return;
     const GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_KEY}`;
-    
-
     //Fetching city coordinates from API response
 
     fetch(GEOCODING_API_URL).then(res => res.json()).then(data => {
        if(!data.length) return alert (`No coordinates found for ${cityName}`);
        const {name, lat, lon} = data[0];
        getWeatherDetails(name, lat, lon);
+       saveRecentSearch(cityName);
+      
     }).catch(() => {
         alert("An error has occured while fetching the coordinates");
     });
 }
-
+    
 searchButton.addEventListener("click", getCityCoordinates);
