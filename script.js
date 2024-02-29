@@ -4,6 +4,7 @@ const currentWeatherDiv = document.querySelector(".current-weather");
 const weatherCardsDiv = document.querySelector(".weather-cards");
 
 const API_KEY = "a8cd28286c4410694c1afe25449f53d9"; //API key generated from OpenWeatherMap
+const WEATHER_API_BASE_URL = 'https://api.openweathermap.org';
 
     // Recent Searches //
 
@@ -107,8 +108,6 @@ const getCityCoordinates = () => {
        if(!data.length) return alert (`No coordinates found for ${cityName}`);
        const {name, lat, lon} = data[0];
        getWeatherDetails(name, lat, lon);
-       saveRecentSearch(cityName);
-      
     }).catch(() => {
         alert("An error has occured while fetching the coordinates");
     });

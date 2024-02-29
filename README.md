@@ -5,21 +5,13 @@ For this week's challenge, I was tasked with creating a weather dashboard to sho
 
 IMG
 
-This challenge has been the most interesting one so far. Building a weather app has
+This challenge has been the most interesting one so far, as it has required me to showcase my knowledge of HTML, CSS and a vast majority of Javascript. 
 
-GIVEN a weather dashboard with form inputs
+The application is operational, achieving most of the success criteria. At present, it displays the weather information for the user and presents a 5-day forecast for the desired city.
 
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
+One objective that I was unable to achieve was a recent searches function. As shown in my committed files, I have typed the code but I am unsure where it has gone wrong. 
 
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed ---DONE
+Link to deployed application:
 
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity ---DONE
-
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-```
 
 
