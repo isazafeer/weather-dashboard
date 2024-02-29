@@ -5,6 +5,43 @@ const weatherCardsDiv = document.querySelector(".weather-cards");
 
 const API_KEY = "a8cd28286c4410694c1afe25449f53d9"; //API key generated from OpenWeatherMap
 
+const recentLocations = [];
+
+function loadRecentLocations() {
+    const recentLocations = JSON.parse(localStorage.getItem('recentLocations'));
+
+    if (recentLocations !== null) {
+        document.getElementById('recent-searches').innerHTML = "";
+
+        for (let i = 0; i <recentLocations.length; i++) {
+            var newLocation = document.createElement('div');
+            newLocation.classList.add('recent-searches');
+            newLocation.textContent = recentLocations[i];
+            newLocation.addEventListener('click', onClickRecentLocation);
+
+            document.getElementById('recent-searches').appendChild(newLocation);
+        }
+    }
+}
+
+function onClickRecentLocation(event) {
+    const searchLocation = event.target.textContent;
+    getCityCoordinates(searchLocation);
+}
+
+function saveRecentSearch (searchLocation) {
+    const recentLocations = JSON.parse(localStorage.getItem('recentLocations'))||[]
+    const index = recentLocations.indexOf(searchLocation);
+
+    if(index === -1 ) {
+        recentLocations.push(searchLocation);
+
+        localStorage.setItem('recentLocations', JSON.stringify(recentLocations));
+        loadRecentLocations();
+    }
+}
+
+
 const createWeatherCard = (cityName, weatherItem, index) => {
     if(index === 0) { //HTML for the main weather card
         return `<div class="details">

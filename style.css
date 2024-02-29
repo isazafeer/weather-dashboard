@@ -151,7 +151,11 @@ h5 {
 
 #recent-searches {
     cursor: pointer;
-    width: 100%;
-    border-radius: 5px;
     text-align: center;
+}
+
+.weather-input .recent-section ul{
+    text-align: center;
+    list-style-type: none;
+    display: none;
 }
